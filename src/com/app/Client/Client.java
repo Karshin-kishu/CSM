@@ -2,8 +2,8 @@ package com.app.Client;
 
 import java.time.LocalDate;
 import java.util.Scanner;
-import com.app.Validate.*;
 
+import com.app.CMSUtils.CMSvalidationRules;
 import com.app.Customer.Customer;
 
 public class Client {
@@ -19,7 +19,7 @@ public class Client {
 				switch (sc.nextInt()) {
 				case 1:
 					System.out.println("Enter all Details");
-					cc[count++] = new Customer(sc.next(),sc.next(),sc.next(),sc.next(),sc.nextDouble(),LocalDate.parse(sc.next()),Vclass.validatePlan(sc.next()));
+					cc[count++] = new Customer(sc.nextInt(),sc.next(),sc.next(),sc.next(),sc.next(),sc.nextDouble(),LocalDate.parse(sc.next()),CMSvalidationRules.validatePlan(sc.next()));
 					System.out.println("Added !!");
 					break;
 				case 2:

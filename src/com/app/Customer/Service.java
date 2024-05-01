@@ -1,4 +1,4 @@
-package com.app.Plan;
+package com.app.Customer;
 
 public enum Service {
 	SILVER (1000) , GOLD (2000) , DIAMOND (5000), PLAT(10000);
