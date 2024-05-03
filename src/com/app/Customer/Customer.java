@@ -3,7 +3,8 @@ package com.app.Customer;
 import java.time.LocalDate;
 
 public class Customer {
-	private static int custid;
+	private static int id;
+	private int custid = 100;
 	private String fname;
 	private String lname;
 	private String email;
@@ -12,19 +13,17 @@ public class Customer {
 	private LocalDate dob;
 	private Service sname;
 	
-	static {
-		 custid =100;
-	}
-	public Customer(int id, String fname, String lname, String email, String pwd, Double regamt, LocalDate dob, Service sname) {
+	public Customer() {}
+	public Customer(String fname, String lname, String email, String pwd, LocalDate dob, Service sname, double regamt) {
 		super();
-		Customer.custid = id++;
+		this.custid = id++;
 		this.fname = fname;
 		this.lname = lname;
 		this.email = email;
 		this.pwd = pwd;
-		this.regamt = regamt;
 		this.dob = dob;
 		this.sname = sname;
+		this.regamt = regamt;
 	}
 
 	public Customer(String email) {
@@ -36,12 +35,12 @@ public class Customer {
 		return "Customer [Customerid="+ custid + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", pwd=" + pwd + ", regamt="
 				+ regamt + ", dob=" + dob + ", sname=" + sname + "]";
 	}
-	public static int getCustid() {
+	public int getCustid() {
 		return custid;
 	}
 
-	public static void setCustid(int custid) {
-		Customer.custid = custid;
+	public void setCustid(int custid) {
+		this.custid = custid;
 	}
 
 	public String getFname() {
