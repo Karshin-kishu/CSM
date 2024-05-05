@@ -8,19 +8,19 @@ public class Customer {
 	private String fname;
 	private String lname;
 	private String email;
-	private String pwd;
+	private String password;
 	private Double regamt;
 	private LocalDate dob;
 	private Service sname;
 	
 	public Customer() {}
-	public Customer(String fname, String lname, String email, String pwd, LocalDate dob, Service sname, double regamt) {
+	public Customer(String fname, String lname, String email, String password, LocalDate dob, Service sname, double regamt) {
 		super();
 		this.custid = id++;
 		this.fname = fname;
 		this.lname = lname;
 		this.email = email;
-		this.pwd = pwd;
+		this.password = password;
 		this.dob = dob;
 		this.sname = sname;
 		this.regamt = regamt;
@@ -30,9 +30,14 @@ public class Customer {
 		super();
 		this.email = email;
 	}
+	public Customer(String email,String password) {
+		super();
+		this.email = email;
+		this.password = password;
+	}
 	@Override
 	public String toString() {
-		return "Customer [Customerid="+ custid + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", pwd=" + pwd + ", regamt="
+		return "Customer [Customerid="+ custid + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", pwd=" + password + ", regamt="
 				+ regamt + ", dob=" + dob + ", sname=" + sname + "]";
 	}
 	public int getCustid() {
@@ -68,11 +73,11 @@ public class Customer {
 	}
 
 	public String getPwd() {
-		return pwd;
+		return password;
 	}
 
 	public void setPwd(String pwd) {
-		this.pwd = pwd;
+		this.password = pwd;
 	}
 
 	public Double getRegamt() {
@@ -103,7 +108,7 @@ public class Customer {
 		System.out.println("in customer equals");
 		if (o instanceof Customer) {
 			Customer c=(Customer)o;
-			return this.email.equals(c.email);
+			return this.email.equals(c.email) && this.password.equals(c.password);
 		}
 		return false;
 	}
